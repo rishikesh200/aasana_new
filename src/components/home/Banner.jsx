@@ -31,11 +31,11 @@ const Banner = () => {
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-end pt-0 lg:pt-0"
+      className="relative min-h-screen flex items-center justify-end pt-20 lg:pt-24"
       id="banner"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${homeBannerData.backgroundImage})` }}
       ></div>
 
@@ -46,7 +46,7 @@ const Banner = () => {
             {homeBannerData.mainTitle}
           </h1>
 
-          <h2 className="text-xl md:text-2xl mt-3 lg:text-3xl font-semibold font-[Raleway] mb-6 text-[#FF4900]">
+          <h2 className="text-xl md:text-2xl mt-3 lg:text-3xl font-semibold font-[Raleway] mb-6 text-[#EB5466]">
             {homeBannerData.subtitle}
           </h2>
 
@@ -54,7 +54,7 @@ const Banner = () => {
             {homeBannerData.introductionParagraph}
           </p>
 
-          <h3 className="text-xl md:text-2xl font-semibold font-[Raleway] mb-6 text-[#FF4900]">
+          <h3 className="text-xl md:text-2xl font-semibold font-[Raleway] mb-6 text-[#EB5466]">
             {homeBannerData.experienceSectionTitle}
           </h3>
 

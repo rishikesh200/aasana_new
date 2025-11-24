@@ -80,13 +80,13 @@ const DropdownMenu = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             {/* Colorectal Conditions */}
             <div className="space-y-4 border-1 border-[#6d6c6c] w-[100%] p-5 rounded-2xl bg-[#00000052]">
-              <h3 className="text-[#FF4900] text-xl font-bold font-[Raleway] mb-4">
+              <h3 className="text-[#EB5466] text-xl font-bold font-[Raleway] mb-4">
                 {menuData.colorectal.title}
               </h3>
               <ul className="grid grid-cols-2 gap-3">
                 {menuData.colorectal.items.map((item, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="text-white text-sm mt-1.5">•</span>
+                  <li key={index} className="flex items-center gap-2">
+                    <span className="text-white text-sm">•</span>
                     <Link
                       to={item.path}
                       onClick={handleClick}
@@ -101,13 +101,13 @@ const DropdownMenu = () => {
 
             {/* Gut Wellness */}
             <div className="space-y-4 border-1 border-[#6d6c6c] p-5 rounded-2xl bg-[#00000052]">
-              <h3 className="text-[#FF4900] text-xl font-bold font-[Raleway] mb-4">
+              <h3 className="text-[#EB5466] text-xl font-bold font-[Raleway] mb-4">
                 {menuData.gutWellness.title}
               </h3>
               <ul className="grid grid-cols-2 gap-3">
                 {menuData.gutWellness.items.map((item, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="text-white text-sm mt-1.5">•</span>
+                  <li key={index} className="flex items-center gap-2">
+                    <span className="text-white text-sm">•</span>
                     <Link
                       to={item.path}
                       onClick={handleClick}
@@ -122,13 +122,13 @@ const DropdownMenu = () => {
 
             {/* Education */}
             <div className="space-y-4 border-1 border-[#6d6c6c] p-5 rounded-2xl bg-[#00000052]">
-              <h3 className="text-[#FF4900] text-xl font-bold font-[Raleway] mb-4">
+              <h3 className="text-[#EB5466] text-xl font-bold font-[Raleway] mb-4">
                 {menuData.education.title}
               </h3>
               <ul className="flex flex-col gap-3">
                 {menuData.education.items.map((item, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="text-white text-sm mt-1.5">•</span>
+                 <li key={index} className="flex items-center gap-2">
+                    <span className="text-white text-sm">•</span>
                     <Link
                       to={item.path}
                       onClick={handleClick}

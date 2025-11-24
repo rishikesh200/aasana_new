@@ -7,6 +7,7 @@ import assanaLogo from "../../assets/images/assanaLogo.png";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [currentSection, setCurrentSection] = useState('banner');
   const [colorectalClinic, setColorectalClinic] = useState(false);
   const [gutWellness, setGutWellness] = useState(false);
   const [education, setEducation] = useState(false);
@@ -22,8 +23,71 @@ const Header = () => {
     }
   }, [menuOpen]);
 
+  // Intersection Observer to detect current section
+  useEffect(() => {
+    const sections = [
+      { id: 'banner', element: null },
+      { id: 'services', element: null },
+    ];
+
+    // Get section elements
+    sections.forEach(section => {
+      section.element = document.getElementById(section.id);
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            setCurrentSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: [0.3, 0.5, 0.7],
+        rootMargin: '-100px 0px -100px 0px'
+      }
+    );
+
+    // Observe sections that exist
+    sections.forEach(section => {
+      if (section.element) {
+        observer.observe(section.element);
+      }
+    });
+
+    // Fallback: detect sections without IDs by scroll position
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // If no specific section is detected, use scroll-based detection
+      if (scrollY < windowHeight * 0.85) {
+        setCurrentSection('banner');
+      } else if (scrollY > windowHeight * 0.85) {
+        setCurrentSection('light-section');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Get header styles based on current section
+  const getHeaderStyles = () => {
+    if (currentSection === 'banner') {
+      return 'bg-[#FFFFFF1F] border-gray-400';
+    } else {
+      return 'bg-[#00000055] border-gray-300';
+    }
+  };
+
   return (
-    <header className="fixed top-4 left-[2.5%] w-[95%] bg-transparent shadow-lg backdrop-blur-[36px] m-auto rounded-full z-50">
+    <header className={`fixed top-4 left-[7.5%] w-[85%] ${getHeaderStyles()} border shadow-lg backdrop-blur-[15px] m-auto rounded-full z-50 transition-all duration-700 ease-in-out`}>
       {/* Desktop menu */}
       <div className="hidden lg:flex">
         <div className="flex items-center justify-between max-w-[1600px] m-auto px-8 py-3.5 w-[95%]">

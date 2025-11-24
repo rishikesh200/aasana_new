@@ -8,7 +8,7 @@ const FrequentlyQA = () => {
   useEffect(() => {
     const fetchData = async () => {  
       try {
-        const res = await axios.get("/askedQuestionsComponent/dataGet");
+        const res = await axios.get("https://assana-site-backend.vercel.app/api/askedQuestionsComponent/dataGet");
         setAskedQuestionsComponentData(res.data.data);
       } catch (error) {
         console.error("Error fetching Asked Questions data:", error);
