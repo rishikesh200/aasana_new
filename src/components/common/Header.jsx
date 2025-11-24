@@ -128,73 +128,67 @@ const Header = () => {
 
               {/* Colorectal Clinic */}
               <li className="relative group">
-                <div className="flex items-center gap-1 cursor-pointer hover:text-[#EC7979] transition-colors px-2">
+                <div className="flex items-center gap-1 cursor-pointer hover:text-[#EC7979] transition-colors px-2 py-2">
                   <span>Colorectal Clinic</span>
                   <MdOutlineArrowDropDown className="text-[20px] mt-0.5" />
                 </div>
-                <ul className="absolute bg-white p-4 text-black w-80 text-left hidden flex-col gap-y-2 top-8 group-hover:flex rounded-xl shadow-lg z-50">
-                  {/* <li><Link to={ROUTES.COLORECTAL_SYMPTOMS} className="hover:text-[#EC7979] transition-colors">Colorectal Symptoms</Link></li> */}
-                  {/* <li><Link to={ROUTES.PILES_HAEMORRHOIDS} className="hover:text-[#EC7979] transition-colors">Piles or Haemorrhoids</Link></li> */}
-                  {/* <li><Link to={ROUTES.BANDING_PILES} className="hover:text-[#EC7979] transition-colors">Banding Of Piles/Haemorrhoids</Link></li> */}
-                  {/* <li><Link to={ROUTES.LASER_SURGERY_PILES} className="hover:text-[#EC7979] transition-colors">Laser Surgery For Piles</Link></li> */}
-                  {/* <li><Link to={ROUTES.ANAL_FISSURE} className="hover:text-[#EC7979] transition-colors">Anal Fissure</Link></li> */}
-                  {/* <li><Link to={ROUTES.ANAL_FISTULA} className="hover:text-[#EC7979] transition-colors">Anal Fistula</Link></li> */}
-                  {/* <li><Link to={ROUTES.AFTER_ANAL_SURGERY} className="hover:text-[#EC7979] transition-colors">After Anal Surgery Wound Care</Link></li> */}
-                  {/* <li><Link to={ROUTES.PELVIC_FLOOR_PROBLEMS} className="hover:text-[#EC7979] transition-colors">Pelvic Floor Problems</Link></li> */}
-                  {/* <li><Link to={ROUTES.COLON_RECTAL_CANCER} className="hover:text-[#EC7979] transition-colors">Colon & Rectal Cancer</Link></li> */}
-                  <li><span className="hover:text-[#EC7979] transition-colors">Colorectal Symptoms</span></li>
-                  <li><span className="hover:text-[#EC7979] transition-colors">Piles or Haemorrhoids</span></li>
-                  <li><span className="hover:text-[#EC7979] transition-colors">Banding Of Piles/Haemorrhoids</span></li>
-                  <li><span className="hover:text-[#EC7979] transition-colors">Laser Surgery For Piles</span></li>
-                  <li><span className="hover:text-[#EC7979] transition-colors">Anal Fissure</span></li>
-                  <li><span className="hover:text-[#EC7979] transition-colors">Anal Fistula</span></li>
-                  <li><span className="hover:text-[#EC7979] transition-colors">After Anal Surgery Wound Care</span></li>
-                  <li><span className="hover:text-[#EC7979] transition-colors">Pelvic Floor Problems</span></li>
-                  <li><span className="hover:text-[#EC7979] transition-colors">Colon & Rectal Cancer</span></li>
-                </ul>
+                <div className="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
+                  <ul className="bg-white p-4 text-black w-80 text-left flex flex-col gap-y-2 rounded-xl shadow-lg">
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Colorectal Symptoms</Link></li>
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Piles or Haemorrhoids</Link></li>
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Banding Of Piles/Haemorrhoids</Link></li>
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Laser Surgery For Piles</Link></li>
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Anal Fissure</Link></li>
+                    <li><Link to={ROUTES.ANAL_FISTULA} className="hover:text-[#EC7979] transition-colors block py-1">Anal Fistula</Link></li>
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">After Anal Surgery Wound Care</Link></li>
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Pelvic Floor Problems</Link></li>
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Colon & Rectal Cancer</Link></li>
+                  </ul>
+                </div>
               </li>
               <li className="text-white/60 px-1">/</li>
 
               {/* Gut Wellness */}
               <li className="relative group">
-                <div className="flex items-center gap-1 cursor-pointer hover:text-[#EC7979] transition-colors px-2">
+                <div className="flex items-center gap-1 cursor-pointer hover:text-[#EC7979] transition-colors px-2 py-2">
                   <Link to={ROUTES.HOME}>Gut wellness</Link>
                   <MdOutlineArrowDropDown className="text-[20px] mt-0.5" />
                 </div>
-                <ul className="absolute bg-white p-4 text-black w-80 text-left hidden flex-col gap-y-2 top-8 group-hover:flex rounded-xl shadow-lg z-50">
-                  {/* <li><Link to={ROUTES.GUT_BRAIN_AXIS} className="hover:text-[#EC7979] transition-colors">Gut Brain Axis & The Gut Microbiome</Link></li> */}
-                  <li><span className="hover:text-[#EC7979] transition-colors">Gut Brain Axis & The Gut Microbiome</span></li>
-                </ul>
+                <div className="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
+                  <ul className="bg-white p-4 text-black w-80 text-left flex flex-col gap-y-2 rounded-xl shadow-lg">
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Gut Brain Axis & The Gut Microbiome</Link></li>
+                  </ul>
+                </div>
               </li>
               <li className="text-white/60 px-1">/</li>
 
               {/* Education */}
               <li className="relative group">
-                <div className="flex items-center gap-1 cursor-pointer hover:text-[#EC7979] transition-colors px-2">
+                <div className="flex items-center gap-1 cursor-pointer hover:text-[#EC7979] transition-colors px-2 py-2">
                   <span>Education</span>
                   <MdOutlineArrowDropDown className="text-[20px] mt-0.5" />
                 </div>
-                <ul className="absolute bg-white p-4 text-black w-80 text-left hidden flex-col gap-y-2 top-8 group-hover:flex rounded-xl shadow-lg z-50">
-                  {/* <li><Link to={ROUTES.EDUCATIONAL_RESOURCES} className="hover:text-[#EC7979] transition-colors">Educational Resources</Link></li> */}
-                  {/* <li><Link to={ROUTES.HEALTH_ARTICLES} className="hover:text-[#EC7979] transition-colors">Health Articles</Link></li> */}
-                  <li><span className="hover:text-[#EC7979] transition-colors">Educational Resources</span></li>
-                  <li><span className="hover:text-[#EC7979] transition-colors">Health Articles</span></li>
-                </ul>
+                <div className="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
+                  <ul className="bg-white p-4 text-black w-80 text-left flex flex-col gap-y-2 rounded-xl shadow-lg">
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Educational Resources</Link></li>
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Health Articles</Link></li>
+                  </ul>
+                </div>
               </li>
               <li className="text-white/60 px-1">/</li>
 
               {/* Products */}
               <li className="relative group">
-                <div className="flex items-center gap-1 cursor-pointer hover:text-[#EC7979] transition-colors px-2">
+                <div className="flex items-center gap-1 cursor-pointer hover:text-[#EC7979] transition-colors px-2 py-2">
                   <span>Products</span>
                   <MdOutlineArrowDropDown className="text-[20px] mt-0.5" />
                 </div>
-                <ul className="absolute bg-white p-4 text-black w-80 text-left hidden flex-col gap-y-2 top-8 group-hover:flex rounded-xl shadow-lg z-50">
-                  {/* <li><Link to={ROUTES.OUR_PRODUCTS} className="hover:text-[#EC7979] transition-colors">Our Products</Link></li> */}
-                  {/* <li><Link to={ROUTES.SHOP} className="hover:text-[#EC7979] transition-colors">Shop</Link></li> */}
-                  <li><span className="hover:text-[#EC7979] transition-colors">Our Products</span></li>
-                  <li><span className="hover:text-[#EC7979] transition-colors">Shop</span></li>
-                </ul>
+                <div className="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
+                  <ul className="bg-white p-4 text-black w-80 text-left flex flex-col gap-y-2 rounded-xl shadow-lg">
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Our Products</Link></li>
+                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Shop</Link></li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </nav>
@@ -317,24 +311,15 @@ const Header = () => {
               </div>
               {colorectalClinic && (
                 <ul className="bg-[#2a2a2a] p-4 text-white flex flex-col gap-y-2 rounded-xl mt-2">
-                  {/* <li><Link to={ROUTES.COLORECTAL_SYMPTOMS} onClick={() => setMenuOpen(false)} className="p-2 block">Colorectal Symptoms</Link></li> */}
-                  {/* <li><Link to={ROUTES.PILES_HAEMORRHOIDS} onClick={() => setMenuOpen(false)} className="p-2 block">Piles or Haemorrhoids</Link></li> */}
-                  {/* <li><Link to={ROUTES.BANDING_PILES} onClick={() => setMenuOpen(false)} className="p-2 block">Banding Of Piles/Haemorrhoids</Link></li> */}
-                  {/* <li><Link to={ROUTES.LASER_SURGERY_PILES} onClick={() => setMenuOpen(false)} className="p-2 block">Laser Surgery For Piles</Link></li> */}
-                  {/* <li><Link to={ROUTES.ANAL_FISSURE} onClick={() => setMenuOpen(false)} className="p-2 block">Anal Fissure</Link></li> */}
-                  {/* <li><Link to={ROUTES.ANAL_FISTULA} onClick={() => setMenuOpen(false)} className="p-2 block">Anal Fistula</Link></li> */}
-                  {/* <li><Link to={ROUTES.AFTER_ANAL_SURGERY} onClick={() => setMenuOpen(false)} className="p-2 block">After Anal Surgery Wound Care</Link></li> */}
-                  {/* <li><Link to={ROUTES.PELVIC_FLOOR_PROBLEMS} onClick={() => setMenuOpen(false)} className="p-2 block">Pelvic Floor Problems</Link></li> */}
-                  {/* <li><Link to={ROUTES.COLON_RECTAL_CANCER} onClick={() => setMenuOpen(false)} className="p-2 block">Colon & Rectal Cancer</Link></li> */}
-                  <li><span className="p-2 block">Colorectal Symptoms</span></li>
-                  <li><span className="p-2 block">Piles or Haemorrhoids</span></li>
-                  <li><span className="p-2 block">Banding Of Piles/Haemorrhoids</span></li>
-                  <li><span className="p-2 block">Laser Surgery For Piles</span></li>
-                  <li><span className="p-2 block">Anal Fissure</span></li>
-                  <li><span className="p-2 block">Anal Fistula</span></li>
-                  <li><span className="p-2 block">After Anal Surgery Wound Care</span></li>
-                  <li><span className="p-2 block">Pelvic Floor Problems</span></li>
-                  <li><span className="p-2 block">Colon & Rectal Cancer</span></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Colorectal Symptoms</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Piles or Haemorrhoids</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Banding Of Piles/Haemorrhoids</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Laser Surgery For Piles</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Anal Fissure</Link></li>
+                  <li><Link to={ROUTES.ANAL_FISTULA} onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Anal Fistula</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">After Anal Surgery Wound Care</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Pelvic Floor Problems</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Colon & Rectal Cancer</Link></li>
                 </ul>
               )}
             </li>
@@ -352,8 +337,7 @@ const Header = () => {
               </div>
               {gutWellness && (
                 <ul className="bg-[#2a2a2a] p-4 text-white flex flex-col gap-y-2 rounded-xl mt-2">
-                  {/* <li><Link to={ROUTES.GUT_BRAIN_AXIS} onClick={() => setMenuOpen(false)} className="p-2 block">Gut Brain Axis & The Gut Microbiome</Link></li> */}
-                  <li><span className="p-2 block">Gut Brain Axis & The Gut Microbiome</span></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Gut Brain Axis & The Gut Microbiome</Link></li>
                 </ul>
               )}
             </li>
@@ -371,10 +355,8 @@ const Header = () => {
               </div>
               {education && (
                 <ul className="bg-[#2a2a2a] p-4 text-white flex flex-col gap-y-2 rounded-xl mt-2">
-                  {/* <li><Link to={ROUTES.EDUCATIONAL_RESOURCES} onClick={() => setMenuOpen(false)} className="p-2 block">Educational Resources</Link></li> */}
-                  {/* <li><Link to={ROUTES.HEALTH_ARTICLES} onClick={() => setMenuOpen(false)} className="p-2 block">Health Articles</Link></li> */}
-                  <li><span className="p-2 block">Educational Resources</span></li>
-                  <li><span className="p-2 block">Health Articles</span></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Educational Resources</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Health Articles</Link></li>
                 </ul>
               )}
             </li>
@@ -392,10 +374,8 @@ const Header = () => {
               </div>
               {products && (
                 <ul className="bg-[#2a2a2a] p-4 text-white flex flex-col gap-y-2 rounded-xl mt-2">
-                  {/* <li><Link to={ROUTES.OUR_PRODUCTS} onClick={() => setMenuOpen(false)} className="p-2 block">Our Products</Link></li> */}
-                  {/* <li><Link to={ROUTES.SHOP} onClick={() => setMenuOpen(false)} className="p-2 block">Shop</Link></li> */}
-                  <li><span className="p-2 block">Our Products</span></li>
-                  <li><span className="p-2 block">Shop</span></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Our Products</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Shop</Link></li>
                 </ul>
               )}
             </li>
@@ -413,16 +393,11 @@ const Header = () => {
               </div>
               {wellnessProgram && (
                 <ul className="bg-[#2a2a2a] p-4 text-white flex flex-col gap-y-2 rounded-xl mt-2">
-                  {/* <li><Link to={ROUTES.COLON_HYDROTHERAPY} onClick={() => setMenuOpen(false)} className="p-2 block">Colon Hydrotherapy & Gut Cleanse Program</Link></li> */}
-                  {/* <li><Link to={ROUTES.ASSANA_BUTT_CHECK} onClick={() => setMenuOpen(false)} className="p-2 block">Assana Butt Check</Link></li> */}
-                  {/* <li><Link to={ROUTES.NEW_MOMS_PROGRAMME} onClick={() => setMenuOpen(false)} className="p-2 block">The New Moms Programme</Link></li> */}
-                  {/* <li><Link to={ROUTES.MENOPAUSE_PROGRAMME} onClick={() => setMenuOpen(false)} className="p-2 block">The Menopause Programme</Link></li> */}
-                  {/* <li><Link to={ROUTES.SENIOR_CITIZENS_PROGRAMME} onClick={() => setMenuOpen(false)} className="p-2 block">The Senior Citizens Programme</Link></li> */}
-                  <li><span className="p-2 block">Colon Hydrotherapy & Gut Cleanse Program</span></li>
-                  <li><span className="p-2 block">Assana Butt Check</span></li>
-                  <li><span className="p-2 block">The New Moms Programme</span></li>
-                  <li><span className="p-2 block">The Menopause Programme</span></li>
-                  <li><span className="p-2 block">The Senior Citizens Programme</span></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Colon Hydrotherapy & Gut Cleanse Program</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Assana Butt Check</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">The New Moms Programme</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">The Menopause Programme</Link></li>
+                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">The Senior Citizens Programme</Link></li>
                 </ul>
               )}
             </li>

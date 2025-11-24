@@ -21,7 +21,7 @@ export const ROUTES = {
   // BANDING_PILES: '/banding-piles',
   // LASER_SURGERY_PILES: '/laser-surgery-piles',
   // ANAL_FISSURE: '/anal-fissure',
-  // ANAL_FISTULA: '/anal-fistula',
+  ANAL_FISTULA: '/anal-fistula',
   // AFTER_ANAL_SURGERY: '/after-anal-surgery',
   // PELVIC_FLOOR_PROBLEMS: '/pelvic-floor-problems',
   // COLON_RECTAL_CANCER: '/colon-rectal-cancer',

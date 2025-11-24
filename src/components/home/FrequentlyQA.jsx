@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import api from '../../services/api';
 
 const FrequentlyQA = () => {
   const [askedQuestionsComponentData, setAskedQuestionsComponentData] = useState([]);
@@ -8,7 +9,7 @@ const FrequentlyQA = () => {
   useEffect(() => {
     const fetchData = async () => {  
       try {
-        const res = await axios.get("https://assana-site-backend.vercel.app/api/askedQuestionsComponent/dataGet");
+        const res = await api.get("/askedQuestionsComponent/dataGet");
         setAskedQuestionsComponentData(res.data.data);
       } catch (error) {
         console.error("Error fetching Asked Questions data:", error);
