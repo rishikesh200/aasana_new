@@ -1,35 +1,38 @@
-import React, { useEffect, useState } from 'react'
-import star from '../../assets/images/star.png'
+import React, { useEffect, useState } from 'react';
+import { BsStars } from "react-icons/bs";
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
-import truDemoBg from '../../assets/images/truDemoBg.png'
+// import truDemoBg from '../../assets/images/truDemoBg.png';
 import { useChatBot } from '../../contexts/ChatBotContext';
 
 const TryDemo = () => {
   const { toggleChatBot } = useChatBot();
 
-     const [getStartedComponentData, setSetStartedComponentData] = useState([]);
-        
-            useEffect(()=>{
-               const fetchData = async () => {
-                try {
-                  const res = await api.get("/getStartedComponent/dataGet");
-                  setSetStartedComponentData(res.data.data);
-                } catch (error) {
-                  console.error("Error fetching Get Started data:", error);
-                }
-               }
-               fetchData();
-        
-            },[])
+  const [getStartedComponentData, setGetStartedComponentData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Updated to use new API endpoint
+        const res = await api.get("/home/get-started");
+        setGetStartedComponentData(res.data);
+      } catch (error) {
+        console.error("Error fetching Get Started data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // Use background image from API if available, otherwise use default
+  const backgroundImage = getStartedComponentData?.backgroundImage ;
 
   return (
     <section className='w-full py-20 px-4 relative overflow-hidden'>
       {/* Blurred Background */}
       <div 
-        className='absolute inset-0 bg-cover bg-center bg-no-repeat  scale-110'
+        className='absolute inset-0 bg-cover bg-center bg-no-repeat scale-110'
         style={{
-          backgroundImage: `url(${truDemoBg})`,
+          backgroundImage: `url(${backgroundImage})`,
         }}
       >
       </div>
@@ -79,7 +82,7 @@ const TryDemo = () => {
               onClick={toggleChatBot} 
               className="bg-[#EC7979] text-white text-sm sm:text-base md:text-lg p-3 sm:p-4 rounded-full px-6 sm:px-8 font-semibold hover:bg-[#d86565] transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
             >
-              <img src={star} alt='star' className='w-5 h-5' />
+              <BsStars className='w-5 h-5' />
               Start Free Symptom Check
             </button>
 

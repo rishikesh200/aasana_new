@@ -36,8 +36,8 @@ const Footer = () => {
   ];
 
   return (
-    <section className='max-w-[1600px] m-auto overflow-hidden'>
-      <div className='grid sm:grid-cols-2 md:grid-cols-4 mt-8 lg:mt-20 ml-6 sm:ml-16 md:ml-0 w-[95%] m-auto'>
+    <section className='  overflow-hidden md:pt-10'>
+      <div className='grid sm:grid-cols-2 md:grid-cols-4  w-[95%] md:w-[90%] m-auto'>
         <div className='bg-[] flex flex-col justify-center items-start md:items-start'>
           <Link 
             to={ROUTES.HOME} 
@@ -87,8 +87,8 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <hr className='text-[#ED7D7D] mt-10 w-[80%] m-auto' />
-      <h1 className='font-bold text-center mt-10 mb-10 text-[#ED7D7D] md:text-black'>©2025 by Assana</h1>
+      <hr className='text-[#ED7D7D] mt-10 w-[90%] m-auto' />
+      <h1 className='font-normal text-center my-5 text-[#555555] '>©2025 by Assana</h1>
     </section>
   );
 };

@@ -11,10 +11,11 @@ const DropdownMenu = () => {
    useEffect(() => {
     const fetchdropdowns =  async () => {
       try {
-        const res = await api.get("/homeServices/dataGet");
-        sethomeServicesData(res.data.data)
+        // Updated to use new API endpoint
+        const res = await api.get("/home/services");
+        sethomeServicesData(res.data)
       } catch (error) {
-         console.error("Error fetching banner:", error.message);
+         console.error("Error fetching services:", error.message);
       }
     }
 
@@ -32,36 +33,61 @@ const DropdownMenu = () => {
   //     });
   // }, []);
 
+  // Use arrays from schema, fallback to old format for backward compatibility
+  const getColorectalItems = () => {
+    if (homeServicesData?.colorectalConditionsItems && Array.isArray(homeServicesData.colorectalConditionsItems)) {
+      return homeServicesData.colorectalConditionsItems.filter(Boolean).map(label => ({ label, path: "" }));
+    }
+    // Fallback to old format
+    return [
+      homeServicesData?.colorectalConditionsItem1,
+      homeServicesData?.colorectalConditionsItem2,
+      homeServicesData?.colorectalConditionsItem3,
+      homeServicesData?.colorectalConditionsItem4,
+      homeServicesData?.colorectalConditionsItem5,
+      homeServicesData?.colorectalConditionsItem6,
+    ].filter(Boolean).map(label => ({ label, path: "" }));
+  };
+
+  const getGutWellnessItems = () => {
+    if (homeServicesData?.gutWellnessItems && Array.isArray(homeServicesData.gutWellnessItems)) {
+      return homeServicesData.gutWellnessItems.filter(Boolean).map(label => ({ label, path: "" }));
+    }
+    // Fallback to old format
+    return [
+      homeServicesData?.gutWellnessItem1,
+      homeServicesData?.gutWellnessItem2,
+      homeServicesData?.gutWellnessItem3,
+      homeServicesData?.gutWellnessItem4,
+      homeServicesData?.gutWellnessItem5,
+      homeServicesData?.gutWellnessItem6,
+    ].filter(Boolean).map(label => ({ label, path: "" }));
+  };
+
+  const getEducationItems = () => {
+    if (homeServicesData?.educationItems && Array.isArray(homeServicesData.educationItems)) {
+      return homeServicesData.educationItems.filter(Boolean).map(label => ({ label, path: "" }));
+    }
+    // Fallback to old format
+    return [
+      homeServicesData?.educationItem1,
+      homeServicesData?.educationItem2,
+      homeServicesData?.educationItem3,
+    ].filter(Boolean).map(label => ({ label, path: "" }));
+  };
+
   const menuData = {
     colorectal: {
       title: homeServicesData?.colorectalConditionsTitle,
-      items: [
-        { label: homeServicesData?.colorectalConditionsItem1, path: "" },
-        { label: homeServicesData?.colorectalConditionsItem2, path: "" },
-        { label: homeServicesData?.colorectalConditionsItem3, path: "" },
-        { label: homeServicesData?.colorectalConditionsItem4, path: "" },
-        { label: homeServicesData?.colorectalConditionsItem5, path: "" },
-        { label: homeServicesData?.colorectalConditionsItem6, path: "" }
-      ]
+      items: getColorectalItems()
     },
     gutWellness: {
       title: homeServicesData?.gutWellnessTitle,
-      items: [
-        { label: homeServicesData?.gutWellnessItem1, path: "" },
-        { label:  homeServicesData?.gutWellnessItem2, path: "" },
-        { label:  homeServicesData?.gutWellnessItem3, path: "" },
-        { label:  homeServicesData?.gutWellnessItem4, path: "" },
-        { label:  homeServicesData?.gutWellnessItem5, path: "" },
-        { label:  homeServicesData?.gutWellnessItem6, path: "" }
-      ]
+      items: getGutWellnessItems()
     },
     education: {
-      title:  homeServicesData?.educationTitle,
-      items: [
-        { label:homeServicesData?.educationItem1 , path: "" },
-        { label: homeServicesData?.educationItem2, path: "" },
-        { label: homeServicesData?.educationItem3, path: "" }
-      ]
+      title: homeServicesData?.educationTitle,
+      items: getEducationItems()
     }
   }
 
@@ -72,9 +98,14 @@ const DropdownMenu = () => {
   }
 
   return (
-    <section className="w-full  bg-[] bg-cover bg-center bg-no-repeat mt-10 mb-10" style={{
-        backgroundImage: `url(${bird})`,
-      }}>
+    <section 
+      className="w-full bg-[] bg-cover bg-center bg-no-repeat mt-10 mb-10" 
+      style={{
+        backgroundImage: homeServicesData?.backgroundImage 
+          ? `url(${homeServicesData.backgroundImage})` 
+          : `url(${bird})`,
+      }}
+    >
       <div className="backdrop-blur-[36px] px-4 md:p-10">
         <div className="w-[100%] md:w-[80%] mx-auto rounded-2xl bg-[]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">

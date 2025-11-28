@@ -3,14 +3,15 @@ import axios from 'axios';
 import api from '../../services/api';
 
 const FrequentlyQA = () => {
-  const [askedQuestionsComponentData, setAskedQuestionsComponentData] = useState([]);
+  const [askedQuestionsComponentData, setAskedQuestionsComponentData] = useState(null);
   const [openIndex, setOpenIndex] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {  
       try {
-        const res = await api.get("/askedQuestionsComponent/dataGet");
-        setAskedQuestionsComponentData(res.data.data);
+        // Updated to use new API endpoint
+        const res = await api.get("/home/asked-questions");
+        setAskedQuestionsComponentData(res.data);
       } catch (error) {
         console.error("Error fetching Asked Questions data:", error);
       }
@@ -19,9 +20,11 @@ const FrequentlyQA = () => {
   }, []);
 
   // ⭐ Prevent crash: if data not loaded yet, return nothing
-  if (!askedQuestionsComponentData || askedQuestionsComponentData.length === 0) {
+  if (!askedQuestionsComponentData) {
     return null; 
   }
+
+  const faqs = askedQuestionsComponentData.faqs || [];
 
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -31,13 +34,13 @@ const FrequentlyQA = () => {
     <section className='max-w-[1600px] m-auto overflow-hidden w-[95%] lg:w-[75%]'>
 
       {/* Heading */}
-      <h1 className="font-[Raleway] smallShadow lg:textShadow text-black text-3xl sm:text-4xl lg:text-6xl mt-8 lg:mt-30 text-center">
-        {askedQuestionsComponentData[0]?.componentHeading}
+      <h1 className="font-[Raleway] smallShadow lg:textShadow text-black text-3xl sm:text-4xl lg:text-6xl mt-8 lg:mt-15 text-center">
+        {askedQuestionsComponentData?.componentHeading}
       </h1>
 
       {/* FAQs */}
       <div className='mt-14'>
-        {askedQuestionsComponentData.map((faq, index) => (
+        {faqs.map((faq, index) => (
           <div key={index} className="mb-4 rounded-xl overflow-hidden">
 
             <button

@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../constants/config';
 import { ChatBotProvider } from '../contexts/ChatBotContext';
-import Banner from '../components/home/Banner';
+import Banner from '../components/home/Banner.example';
 import DropdownMenu from '../components/home/DropdownMenu';
 import WhyAssana from '../components/home/WhyAssana';
-import WhyDifferent from '../components/home/WhyDifferent';
-import Healing from '../components/home/Healing';
+
 import PatientSays from '../components/home/PatientSays';
 import FrequentlyQA from '../components/home/FrequentlyQA';
 import Services from '../components/home/Services';
 import TryDemo from '../components/home/TryDemo';
 import ChatBot from '../components/home/ChatBot';
+import HomeYoutube from '../components/home/HomeYoutube';
 
 
 
@@ -21,9 +21,9 @@ const Home = () => {
         <Banner />
         <DropdownMenu/>
         <WhyAssana/>
-        <WhyDifferent/>
+        
         <Services/>
-        <Healing/>
+       <HomeYoutube/>
         <PatientSays/>
         <FrequentlyQA/>
         <TryDemo/>

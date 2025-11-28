@@ -1,34 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../constants/config'
-import anal_fistula_hero from '../../assets/images/anal_fistula_hero.png'
+import { ROUTES } from '../../constants/config';
+import api from '../../services/api';
+import anal_fistula_hero from '../../assets/images/anal_fistula_hero.png';
 
 const Anal_fistula_hero = () => {
+  const [heroData, setHeroData] = useState(null);
+
+  useEffect(() => {
+    const fetchHero = async () => {
+      try {
+        const res = await api.get('/anal-fistula/hero');
+        setHeroData(res.data);
+      } catch (error) {
+        console.error('Error fetching anal fistula hero:', error);
+      }
+    };
+    fetchHero();
+  }, []);
+
+  // Use API data if available, otherwise use defaults
+  const backgroundImage = heroData?.backgroundImage || anal_fistula_hero;
+  const title = heroData?.title || 'Anal Fistula';
+  const description = heroData?.description || 'An anal fistula is an abnormal tunnel that forms between the inside of the anal canal and the skin near the anus. It often develops due to an infection in an anal gland, which can cause an abscess (a pocket of pus) that drains to the skin. When the abscess heals incompletely or reopens, it can leave behind a fistula.';
+  const buttonText = heroData?.buttonText || 'Book a Consultation';
+
   return (
     <section className="relative min-h-screen flex items-center justify-start pt-20 lg:pt-24">
       {/* Background Image */}
       <img
-        src={anal_fistula_hero}
+        src={backgroundImage}
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover"
       />
 
       {/* Content Overlay - Direct text on background, no card */}
-      <div className="relative z-10 w-full lg:w-[50%] ml-8 lg:ml-16 xl:ml-24 my-8 lg:my-0 px-4 lg:px-0">
+      <div className="relative z-10 w-full lg:w-[50%] ml-8 lg:ml-20 xl:ml-30 my-8 lg:my-0 px-4 lg:px-0">
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-[Raleway] mb-6 text-black">
-          Anal Fistula
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal font-[Raleway] mb-6 text-black">
+          {title}
         </h1>
 
         {/* Description Paragraph */}
-        <p className="text-base md:text-lg lg:text-xl font-[Raleway] mb-8 leading-relaxed text-black max-w-2xl">
-          An anal fistula is an abnormal tunnel that forms between the inside of the anal canal and the skin near the anus. It often develops due to an infection in an anal gland, which can cause an abscess (a pocket of pus) that drains to the skin. When the abscess heals incompletely or reopens, it can leave behind a fistula.
+        <p className="text-base md:text-lg lg:text-xl font-[Raleway] mb-8 leading-relaxed text-black ">
+          {description}
         </p>
 
         {/* Book Consultation Button */}
         <Link to={ROUTES.CONTACT}>
-          <button className="bg-[#EC7979] text-white py-3 px-8 rounded-lg cursor-pointer hover:bg-[#d86565] transition-colors font-medium text-base md:text-lg font-[Raleway]">
-            Book a Consultation
+          <button className="bg-[#EC7979] text-white py-3 px-8 rounded-3xl cursor-pointer hover:bg-[#d86565] transition-colors font-medium text-base md:text-lg font-[Raleway]">
+            {buttonText}
           </button>
         </Link>
       </div>

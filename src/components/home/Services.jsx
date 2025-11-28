@@ -6,20 +6,25 @@ import { useChatBot } from "../../contexts/ChatBotContext";
 const Services = () => {
   const { toggleChatBot } = useChatBot();
 
-      const [servicesComponentData, setServicesComponentData] = useState([]);
-    
-        useEffect(()=>{
-           const fetchData = async () => {
-            try {
-              const res = await api.get("/servicesComponent/dataGet");
-              setServicesComponentData(res.data.data);
-            } catch (error) {
-              console.error("Error fetching Services data:", error);
-            }
-           }
-           fetchData();
-    
-        },[])
+  const [servicesComponentData, setServicesComponentData] = useState([]);
+  const [componentHeading, setComponentHeading] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Updated to use new API endpoint
+        const res = await api.get("/home/services-component");
+        // Backend returns { componentHeading: '', services: [...] }
+        if (res.data) {
+          setComponentHeading(res.data.componentHeading || '');
+          setServicesComponentData(res.data.services || []);
+        }
+      } catch (error) {
+        console.error("Error fetching Services data:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
 
         
@@ -34,19 +39,19 @@ const Services = () => {
     <section className="max-w-[1600px] m-auto overflow-hidden" id="services">
       <div className='w-[95%] m-auto'>
       <h1 className="font-[Raleway] smallShadow lg:textShadow text-black text-3xl sm:text-4xl lg:text-6xl  mt-10 lg:mt-30 text-center">
-        {servicesComponentData[0]?.componentHeading}
+        {componentHeading}
       </h1>
 
       <div className="mt-12">
         {servicesComponentData.map((item, index) => {
-          const isActive = activeBox === item._id;
+          const isActive = activeBox === index;
 
           return (
             <div key={index}>
               {/* Service Header */}
               <div
                 className="border-1 border-[#ed7d7d] w-full h-21 sm:h-25 rounded-2xl flex justify-between items-center mt-12 cursor-pointer shadow-lg"
-                onClick={() => toggleBox(item._id)}
+                onClick={() => toggleBox(index)}
               >
                 <h1 className="text-lg sm:text-3xl lg:text-4xl  font-[Raleway] ml-6 lg:ml-12">
                   {item.serviceHeading}
@@ -81,9 +86,6 @@ const Services = () => {
                 }`}
               >
                 <div className="bg-[#EC7979] rounded-2xl p-4 sm:p-10">
-                  <h1 className="text-2xl lg:text-4xl font-bold font-[Raleway] text-white">
-                    {/* {item.serviceOpenHeading} */}
-                  </h1>
                   <p className="text-white text-base sm:text-lg mt-4">{item.serviceOpenPara1}</p>
                   <p className="text-white text-base sm:text-lg mt-4">{item.serviceOpenPara2}</p>
                 </div>

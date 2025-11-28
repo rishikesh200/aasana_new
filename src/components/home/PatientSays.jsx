@@ -1,29 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import axios from 'axios';
+import api from '../../services/api';
 
 const PatientSays = () => {
-
-  const [patientFeedbacksComponentData, setPatientFeedbacksComponentData] = useState([]);
+  const [patientFeedbacksComponentData, setPatientFeedbacksComponentData] = useState(null);
 
   useEffect(() => {
-    axios
-      .get('https://assana-site-backend.vercel.app/api/patientFeedbackComponent/dataGet')
-      .then((response) => {
-        console.log("API DATA:", response.data);  
-        setPatientFeedbacksComponentData(response.data.data); // ✔ FIXED
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    const fetchData = async () => {
+      try {
+        // Updated to use new API endpoint
+        const res = await api.get("/home/patient-feedback");
+        setPatientFeedbacksComponentData(res.data);
+      } catch (error) {
+        console.error("Error fetching Patient Feedback data:", error);
+      }
+    };
+    fetchData();
   }, []);
 
   // Prevent undefined errors
-  if (!patientFeedbacksComponentData || patientFeedbacksComponentData.length === 0) {
+  if (!patientFeedbacksComponentData) {
     return null; 
   }
+
+  const testimonials = patientFeedbacksComponentData.testimonials || [];
 
   const SampleNextArrow = ({ className, style, onClick }) => (
     <div
@@ -58,17 +60,17 @@ const PatientSays = () => {
 
         {/* Heading */}
         <h1 className="font-[Raleway] text-2xl sm:text-4xl lg:text-6xl font-semibold mt-6 text-center text-white">
-          {patientFeedbacksComponentData[0]?.componentHeading}
+          {patientFeedbacksComponentData?.componentHeading}
         </h1>
 
         {/* Subheading */}
         <p className="font-[Raleway] text-base sm:text-xl lg:font-semibold mt-4 text-white text-center">
-          {patientFeedbacksComponentData[0]?.componentSubHeading}
+          {patientFeedbacksComponentData?.componentSubHeading}
         </p>
 
         {/* Slider */}
         <Slider {...settings} className="w-[100%] sm:w-[85%] m-auto mt-8 p-4">
-          {patientFeedbacksComponentData.map((data, index) => (
+          {testimonials.map((data, index) => (
             <div key={index}>
               <div className="border border-[#dfdddd] rounded-xl w-full mb-10 max-w-4xl m-auto sm:grid grid-cols-3">
 

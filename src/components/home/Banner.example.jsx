@@ -1,3 +1,6 @@
+// EXAMPLE: Updated Banner component using new API endpoint
+// Replace the existing Banner.jsx with this version
+
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 
@@ -7,7 +10,8 @@ const Banner = () => {
   useEffect(() => {
     const fetchBanner = async () => {
       try {
-        // Updated to use new API endpoint
+        // NEW: Changed from /homeBanner/dataGet to /home/banner
+        // NEW: Changed from res.data.data to res.data
         const res = await api.get("/home/banner");
         setHomeBannerData(res.data);
       } catch (error) {
@@ -18,7 +22,7 @@ const Banner = () => {
     fetchBanner();
   }, []);
 
-  if (!homeBannerData) return null; // Prevent rendering before data arrives
+  if (!homeBannerData) return null;
 
   // Use experienceItems array from schema, fallback to old format for backward compatibility
   const primeExperienceItems = homeBannerData.experienceItems && Array.isArray(homeBannerData.experienceItems)
@@ -39,13 +43,12 @@ const Banner = () => {
       id="banner"
     >
       <div
-         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${homeBannerData.backgroundImage})` }}
       ></div>
 
       <div className="relative z-10 w-full lg:w-[45%] mr-0 lg:mr-8 xl:mr-16 my-8 lg:my-0">
         <div className="backdrop-blur-[100px] rounded-2xl p-6 md:p-8 lg:p-10 text-white mx-4 lg:mx-0 shadow-2xl border-1 border-[#6d6c6c]">
-          
           <h1 className="text-3xl md:text-4xl lg:text-4xl text-center font-bold font-[Raleway] mb-3">
             {homeBannerData.mainTitle}
           </h1>
@@ -70,7 +73,6 @@ const Banner = () => {
               </li>
             ))}
           </ol>
-
         </div>
       </div>
     </section>
@@ -78,3 +80,4 @@ const Banner = () => {
 };
 
 export default Banner;
+
