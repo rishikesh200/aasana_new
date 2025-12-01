@@ -37,20 +37,22 @@ const Footer = () => {
 
   return (
     <section className='  overflow-hidden md:pt-10'>
-      <div className='grid sm:grid-cols-2 md:grid-cols-4  w-[95%] md:w-[90%] m-auto'>
-        <div className='bg-[] flex flex-col justify-center items-start md:items-start'>
+      <div className=' flex flex-col md:flex-row gap-x-6 md:gap-x-8 w-[95%] md:w-[90%] m-auto  p-7'>
+        <div className='bg-[] flex flex-col justify-center items-center md:items-start  md:w-[30%]'>
           <Link 
             to={ROUTES.HOME} 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <img src={assanaLogo} alt='assanaLogo' className='h-15 mb-3 lg:mt-7' />
           </Link>
-          {footerContact.map((item, index) => (
-            <div key={index} className='flex items-center gap-x-2'>
-              <span className='text-[#ED7D7D]'>{item.icon}</span>
-              <h1 className='font-[Sora] text-[#00000094] mt-2 w-[95%]'>{item.title}</h1>
-            </div>
-          ))}
+          <div className='mt-5'>
+            {footerContact.map((item, index) => (
+              <div key={index} className='flex items-center gap-x-2 '>
+                <span className='text-[#ED7D7D] text-2xl '>{item.icon}</span>
+                <h1 className='font-[Sora] text-[#00000094]  w-[95%]'>{item.title}</h1>
+              </div>
+            ))}
+          </div>
           
           <div className='flex gap-x-4 mt-5 text-2xl text-[#ED7D7D]'>
             <FaFacebookSquare />
@@ -59,16 +61,18 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className='bg-[] font-[Raleway] flex flex-col'>
+        <div className='bg-[] font-[Raleway] flex flex-col items-center text-center md:items-start md:w-[20%]'>
           <h1 className='font-bold mb-2 mt-10 text-[#EB5466]'>Quick Links</h1>
-          {footerQuickLinks.map((item, index) => (
-            <Link key={index} to={item.link}>
-              <h1 className='font-[Raleway] text-[#00000094] font-semibold mt-1 cursor-pointer'>{item.title}</h1>
-            </Link>
-          ))}
+          <div>
+            {footerQuickLinks.map((item, index) => (
+              <Link key={index} to={item.link}>
+                <h1 className='font-[Raleway] text-[#00000094] font-semibold mt-1 cursor-pointer'>{item.title}</h1>
+              </Link>
+            ))}
+          </div>
         </div>
 
-        <div className='bg-[] font-[Raleway]'>
+        <div className='bg-[] font-[Raleway] '>
           <h1 className='font-bold mb-2 mt-10 text-[#EB5466]'>Services</h1>
           {footerServices.map((item, index) => (
             <Link key={index} to={item.link || ROUTES.HOME}>
@@ -77,11 +81,11 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className='bg-[] font-[Raleway]'>
+        <div className='bg-[] font-[Raleway]  md:w-[25%]'>
           <h1 className='font-bold mb-2 mt-10 text-[#EB5466]'>Contact Info</h1>
           {footerContact.map((item, index) => (
-            <div key={index} className='flex items-center gap-x-2'>
-              <span className='text-[#ED7D7D]'>{item.icon}</span>
+            <div key={index} className='flex items-center gap-x-2 mt-5'>
+              <span className='text-[#ED7D7D] text-2xl'>{item.icon}</span>
               <h1 className='font-[Sora] text-[#00000094] mt-2 w-[95%]'>{item.title}</h1>
             </div>
           ))}

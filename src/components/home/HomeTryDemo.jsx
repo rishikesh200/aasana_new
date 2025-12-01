@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import truDemoBg from '../../assets/images/truDemoBg.png';
 import { useChatBot } from '../../contexts/ChatBotContext';
 
-const TryDemo = () => {
+const HomeTryDemo = () => {
   const { toggleChatBot } = useChatBot();
 
   const [getStartedComponentData, setGetStartedComponentData] = useState(null);
@@ -101,4 +101,4 @@ const TryDemo = () => {
   )
 }
 
-export default TryDemo
+export default HomeTryDemo

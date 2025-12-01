@@ -3,7 +3,7 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
-const WhyAssana = () => {
+const HomeWhyAssana = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -91,4 +91,4 @@ const WhyAssana = () => {
   );
 };
 
-export default WhyAssana;
+export default HomeWhyAssana;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import api from '../../services/api';
 
-const FrequentlyQA = () => {
+const HomeFrequentlyQA = () => {
   const [askedQuestionsComponentData, setAskedQuestionsComponentData] = useState(null);
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -19,12 +19,14 @@ const FrequentlyQA = () => {
     fetchData();
   }, []);
 
-  // ⭐ Prevent crash: if data not loaded yet, return nothing
-  if (!askedQuestionsComponentData) {
+  // Safe defaults
+  const componentHeading = askedQuestionsComponentData?.componentHeading || 'Frequently Asked Questions';
+  const faqs = askedQuestionsComponentData?.faqs || [];
+
+  // ⭐ Prevent crash: if no FAQs, return nothing
+  if (faqs.length === 0) {
     return null; 
   }
-
-  const faqs = askedQuestionsComponentData.faqs || [];
 
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -35,7 +37,7 @@ const FrequentlyQA = () => {
 
       {/* Heading */}
       <h1 className="font-[Raleway] smallShadow lg:textShadow text-black text-3xl sm:text-4xl lg:text-6xl mt-8 lg:mt-15 text-center">
-        {askedQuestionsComponentData?.componentHeading}
+        {componentHeading}
       </h1>
 
       {/* FAQs */}
@@ -47,7 +49,7 @@ const FrequentlyQA = () => {
               className="w-full text-[#EB5466] flex justify-between font-medium items-center px-4 py-5 text-base sm:text-xl font-[Raleway] bg-[#0000000a] text-left cursor-pointer"
               onClick={() => handleToggle(index)}
             >
-              {faq.questionHeading}
+              {faq.questionHeading || 'Question'}
               <span
                 className={`transform text-black transition-transform ${
                   openIndex === index ? "rotate-45" : ""
@@ -59,7 +61,7 @@ const FrequentlyQA = () => {
 
             {openIndex === index && (
               <div className="px-4 pb-4 bg-[#0000000a] cursor-pointer font-[Raleway] text-black font-medium text-base">
-                {faq.answerPara}
+                {faq.answerPara || 'Answer not available.'}
               </div>
             )}
 
@@ -71,4 +73,4 @@ const FrequentlyQA = () => {
   );
 };
 
-export default FrequentlyQA;
+export default HomeFrequentlyQA;

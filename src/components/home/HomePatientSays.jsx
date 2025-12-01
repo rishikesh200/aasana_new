@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import api from '../../services/api';
 
-const PatientSays = () => {
+const HomePatientSays = () => {
   const [patientFeedbacksComponentData, setPatientFeedbacksComponentData] = useState(null);
 
   useEffect(() => {
@@ -108,4 +108,4 @@ const PatientSays = () => {
   );
 };
 
-export default PatientSays;
+export default HomePatientSays;

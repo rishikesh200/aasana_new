@@ -3,7 +3,7 @@ import { BsArrowDownRight, BsArrowUpRight } from "react-icons/bs";
 import api from "../../services/api";
 import { useChatBot } from "../../contexts/ChatBotContext";
 
-const Services = () => {
+const HomeServices = () => {
   const { toggleChatBot } = useChatBot();
 
   const [servicesComponentData, setServicesComponentData] = useState([]);
@@ -107,4 +107,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default HomeServices;

@@ -9,6 +9,7 @@ import { ROUTES } from './constants/config';
 import About from './pages/About';
 import Pelvic_floor from './pages/Pelvic_floor';
 import Piles from './pages/Piles';
+import Product from './pages/Product';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           <Route path={ROUTES.ANAL_FISTULA} element={<Anal_fistula />} />
           <Route path={ROUTES.PELVIC_FLOOR_PROBLEMS} element={<Pelvic_floor />} />
           <Route path={ROUTES.BANDING_PILES} element={<Piles />} />
-         <Route path={ROUTES.ABOUT} element={<About />} />
+          <Route path={ROUTES.ABOUT} element={<About />} />
+          <Route path={ROUTES.PRODUCT} element={<Product />} />
            {/* <Route path={ROUTES.CONTACT} element={<Contact />} /> */}
           {/* 404 - Catch all route */}
           <Route path="*" element={<NotFound />} />

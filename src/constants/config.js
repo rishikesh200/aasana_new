@@ -34,6 +34,7 @@ export const ROUTES = {
   // HEALTH_ARTICLES: '/health-articles',
   
   // Products routes
+  PRODUCT: '/product',
   // OUR_PRODUCTS: '/our-products',
   // SHOP: '/shop',
   

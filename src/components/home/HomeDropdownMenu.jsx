@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import bird from './../../assets/images/bird.png';
 import api from '../../services/api';
 
-const DropdownMenu = () => {
+const HomeDropdownMenu = () => {
 
 
   const [homeServicesData, sethomeServicesData] = useState([]);
@@ -178,5 +178,5 @@ const DropdownMenu = () => {
   )
 }
 
-export default DropdownMenu
+export default HomeDropdownMenu
 

@@ -185,7 +185,7 @@ const Header = () => {
                 </div>
                 <div className="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
                   <ul className="bg-white p-4 text-black w-80 text-left flex flex-col gap-y-2 rounded-xl shadow-lg">
-                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Our Products</Link></li>
+                    <li><Link to={ROUTES.PRODUCT} className="hover:text-[#EC7979] transition-colors block py-1">Our Products</Link></li>
                     <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Shop</Link></li>
                   </ul>
                 </div>
@@ -374,7 +374,7 @@ const Header = () => {
               </div>
               {products && (
                 <ul className="bg-[#2a2a2a] p-4 text-white flex flex-col gap-y-2 rounded-xl mt-2">
-                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Our Products</Link></li>
+                  <li><Link to={ROUTES.PRODUCT} onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Our Products</Link></li>
                   <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Shop</Link></li>
                 </ul>
               )}

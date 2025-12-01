@@ -2,7 +2,7 @@ import React from 'react'
 import { useChatBot } from '../../contexts/ChatBotContext'
 import bot from '../../assets/images/chatBot.webp'
 
-const ChatBot = () => {
+const HomeChatBot = () => {
   const { chatBot, toggleChatBot } = useChatBot();
 
   return (
@@ -23,4 +23,4 @@ const ChatBot = () => {
   )
 }
 
-export default ChatBot
+export default HomeChatBot

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 
-const Banner = () => {
+const HomeBanner = () => {
   const [homeBannerData, setHomeBannerData] = useState(null);
 
   useEffect(() => {
@@ -77,4 +77,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default HomeBanner;
