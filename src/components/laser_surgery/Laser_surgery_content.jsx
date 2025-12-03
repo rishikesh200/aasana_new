@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 
-const Piles_content = () => {
+const Laser_surgery_content = () => {
   const [contentData, setContentData] = useState({
     mainTitle: 'All you need to know..',
     leftTopSection: { title: '', description: '' },
@@ -15,7 +15,7 @@ const Piles_content = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const res = await api.get('/piles/content');
+        const res = await api.get('/laser-surgery/content');
         if (res.data) {
           setContentData({
             mainTitle: res.data.mainTitle || 'All you need to know..',
@@ -28,7 +28,7 @@ const Piles_content = () => {
           });
         }
       } catch (error) {
-        console.error('Error fetching piles content:', error);
+        console.error('Error fetching laser surgery content:', error);
       }
     };
     fetchContent();
@@ -95,5 +95,6 @@ const Piles_content = () => {
   );
 };
 
-export default Piles_content;
+export default Laser_surgery_content;
+
 

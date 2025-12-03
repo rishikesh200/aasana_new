@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../../constants/config';
 import api from '../../services/api';
 
-const Piles_hero = () => {
+const BandingPiles_hero = () => {
   const [heroData, setHeroData] = useState(null);
 
   useEffect(() => {
     const fetchHero = async () => {
       try {
-        const res = await api.get('/piles/hero');
+        const res = await api.get('/banding-piles/hero');
         setHeroData(res.data);
       } catch (error) {
-        console.error('Error fetching piles hero:', error);
+        console.error('Error fetching banding piles hero:', error);
       }
     };
     fetchHero();
@@ -60,5 +60,5 @@ const Piles_hero = () => {
   );
 };
 
-export default Piles_hero;
+export default BandingPiles_hero;
 

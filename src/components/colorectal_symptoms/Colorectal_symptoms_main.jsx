@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../../constants/config';
 import api from '../../services/api';
 
-const Pelvic_floor_main = () => {
+const Colorectal_symptoms_main = () => {
   const [sectionsData, setSectionsData] = useState([]);
 
   useEffect(() => {
     const fetchMain = async () => {
       try {
-        const res = await api.get('/pelvic-floor/main');
+        const res = await api.get('/colorectal-symptoms/main');
         if (res.data) {
           setSectionsData(res.data.sections || []);
         }
       } catch (error) {
-        console.error('Error fetching pelvic floor main:', error);
+        console.error('Error fetching colorectal symptoms main:', error);
       }
     };
     fetchMain();
@@ -22,7 +20,7 @@ const Pelvic_floor_main = () => {
 
   return (
     <div className="bg-white py-12 md:py-16 lg:p-20">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-8 lg:px-16 space-y-8 md:space-y-25">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-8 lg:px-16 space-y-8 md:space-y-12">
         {sectionsData.map((section, index) => {
           // Alternate column layout: odd index (0, 2, 4...) = image left, even index (1, 3, 5...) = image right
           const isImageLeft = index % 2 === 0;
@@ -42,7 +40,7 @@ const Pelvic_floor_main = () => {
                   )}
                   {/* Image Title Overlay */}
                   {section.imageTitle && (
-                    <div className="absolute bottom-0 left-0 right-0  px-4 py-3 rounded-b-lg">
+                    <div className="absolute bottom-0 left-0 right-0 px-4 py-3 rounded-b-lg">
                       <p className="text-white text-lg md:text-xl font-[Raleway] font-bold text-center uppercase">
                         {section.imageTitle}
                       </p>
@@ -64,11 +62,11 @@ const Pelvic_floor_main = () => {
                     </div>
                   )}
 
-                  {/* How Azura Can Help */}
+                  {/* How Assana Can Help */}
                   {section.howCanHelp && (
                     <div className="mb-6">
                       <h3 className="text-xl md:text-2xl font-[Raleway] font-semibold mb-3 text-[#E64C4CE5]">
-                        {section.howCanHelpHeading || 'How Azura Can Help'}
+                        {section.howCanHelpHeading || 'Symptoms'}
                       </h3>
                       <p className="text-base md:text-lg font-[Raleway] text-gray-700 leading-relaxed">
                         {section.howCanHelp}
@@ -80,12 +78,12 @@ const Pelvic_floor_main = () => {
                   {section.symptoms && section.symptoms.length > 0 && (
                     <div>
                       <h3 className="text-xl md:text-2xl font-[Raleway] font-semibold mb-3 text-[#E64C4CE5]">
-                        {section.symptomsHeading || 'Symptoms'}
+                        {section.symptomsHeading || 'How Assana Can Help'}
                       </h3>
                       <ul className="space-y-2 md:space-y-3 text-base md:text-lg md:ml-6 font-[Raleway] text-gray-700 leading-relaxed list-none">
                         {section.symptoms.map((symptom, symptomIndex) => (
                           <li key={symptomIndex} className="flex items-start gap-3">
-                            <span className="text-[#EC7979] font-bold flex-shrink-0 mt-0.5">•</span>
+                            <span className="text-[#EC7979] font-bold shrink-0 mt-0.5">•</span>
                             <span>{symptom}</span>
                           </li>
                         ))}
@@ -102,5 +100,5 @@ const Pelvic_floor_main = () => {
   );
 };
 
-export default Pelvic_floor_main;
+export default Colorectal_symptoms_main;
 

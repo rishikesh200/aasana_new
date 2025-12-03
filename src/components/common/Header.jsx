@@ -134,15 +134,15 @@ const Header = () => {
                 </div>
                 <div className="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
                   <ul className="bg-white p-4 text-black w-80 text-left flex flex-col gap-y-2 rounded-xl shadow-lg">
-                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Colorectal Symptoms</Link></li>
-                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Piles or Haemorrhoids</Link></li>
+                    <li><Link to={ROUTES.COLORECTAL_SYMPTOMS} className="hover:text-[#EC7979] transition-colors block py-1">Colorectal Symptoms</Link></li>
+                    <li><Link to={ROUTES.PILES_HAEMORRHOIDS} className="hover:text-[#EC7979] transition-colors block py-1">Piles or Haemorrhoids</Link></li>
                     <li><Link to={ROUTES.BANDING_PILES} className="hover:text-[#EC7979] transition-colors block py-1">Banding Of Piles/Haemorrhoids</Link></li>
-                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Laser Surgery For Piles</Link></li>
-                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Anal Fissure</Link></li>
+                    <li><Link to={ROUTES.LASER_SURGERY_PILES} className="hover:text-[#EC7979] transition-colors block py-1">Laser Surgery For Piles</Link></li>
+                    <li><Link to={ROUTES.ANAL_FISSURE} className="hover:text-[#EC7979] transition-colors block py-1">Anal Fissure</Link></li>
                     <li><Link to={ROUTES.ANAL_FISTULA} className="hover:text-[#EC7979] transition-colors block py-1">Anal Fistula</Link></li>
-                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">After Anal Surgery Wound Care</Link></li>
+                    <li><Link to={ROUTES.AFTER_ANAL_SURGERY} className="hover:text-[#EC7979] transition-colors block py-1">After Anal Surgery Wound Care</Link></li>
                     <li><Link to={ROUTES.PELVIC_FLOOR_PROBLEMS} className="hover:text-[#EC7979] transition-colors block py-1">Pelvic Floor Problems</Link></li>
-                    <li><Link to="#" className="hover:text-[#EC7979] transition-colors block py-1">Colon & Rectal Cancer</Link></li>
+                    <li><Link to={ROUTES.COLON_RECTAL_CANCER} className="hover:text-[#EC7979] transition-colors block py-1">Colon & Rectal Cancer</Link></li>
                   </ul>
                 </div>
               </li>
@@ -311,15 +311,15 @@ const Header = () => {
               </div>
               {colorectalClinic && (
                 <ul className="bg-[#2a2a2a] p-4 text-white flex flex-col gap-y-2 rounded-xl mt-2">
-                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Colorectal Symptoms</Link></li>
-                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Piles or Haemorrhoids</Link></li>
+                  <li><Link to={ROUTES.COLORECTAL_SYMPTOMS} onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Colorectal Symptoms</Link></li>
+                  <li><Link to={ROUTES.PILES_HAEMORRHOIDS} onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Piles or Haemorrhoids</Link></li>
                   <li><Link to={ROUTES.BANDING_PILES} onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Banding Of Piles/Haemorrhoids</Link></li>
-                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Laser Surgery For Piles</Link></li>
-                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Anal Fissure</Link></li>
+                  <li><Link to={ROUTES.LASER_SURGERY_PILES} onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Laser Surgery For Piles</Link></li>
+                  <li><Link to={ROUTES.ANAL_FISSURE} onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Anal Fissure</Link></li>
                   <li><Link to={ROUTES.ANAL_FISTULA} onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Anal Fistula</Link></li>
-                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">After Anal Surgery Wound Care</Link></li>
+                  <li><Link to={ROUTES.AFTER_ANAL_SURGERY} onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">After Anal Surgery Wound Care</Link></li>
                   <li><Link to={ROUTES.PELVIC_FLOOR_PROBLEMS} onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Pelvic Floor Problems</Link></li>
-                  <li><Link to="#" onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Colon & Rectal Cancer</Link></li>
+                  <li><Link to={ROUTES.COLON_RECTAL_CANCER} onClick={() => setMenuOpen(false)} className="p-2 block hover:text-[#EC7979] transition-colors">Colon & Rectal Cancer</Link></li>
                 </ul>
               )}
             </li>

@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className='bg-[] font-[Raleway] flex flex-col items-center text-center md:items-start md:w-[20%]'>
+        <div className='bg-[] font-[Raleway] flex flex-col text-center sm:text-center md:text-left md:items-start md:w-[20%]'>
           <h1 className='font-bold mb-2 mt-10 text-[#EB5466]'>Quick Links</h1>
           <div>
             {footerQuickLinks.map((item, index) => (

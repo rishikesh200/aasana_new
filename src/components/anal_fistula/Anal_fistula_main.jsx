@@ -43,12 +43,20 @@ const Anal_fistula_main = () => {
             <div key={index} className="bg-[#FEF6F6] rounded-2xl shadow-lg overflow-hidden">
               <div className={`grid grid-cols-1 ${gridCols} gap-6 lg:gap-8 items-center p-6 md:p-8 lg:p-10`}>
                 {/* Image - Always on top for mobile, position alternates on lg screens */}
-                <div className={`md:h-[50vh] ${!isImageLeft ? 'lg:order-2' : 'lg:order-1'}`}>
+                <div className={`md:h-[50vh] ${!isImageLeft ? 'lg:order-2' : 'lg:order-1'} relative`}>
                   <img
                     src={section.image}
                     alt={section.imageAlt}
                     className="rounded-lg object-cover w-full h-full"
                   />
+                  {/* Image Title Overlay */}
+                  {section.imageTitle && (
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm px-4 py-3 rounded-b-lg">
+                      <p className="text-white text-lg md:text-xl font-[Raleway] font-medium text-center uppercase">
+                        {section.imageTitle}
+                      </p>
+                    </div>
+                  )}
                 </div>
                 
                 {/* Content - Always on bottom for mobile, position alternates on lg screens */}

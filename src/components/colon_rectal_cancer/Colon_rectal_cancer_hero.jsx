@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../../constants/config';
 import api from '../../services/api';
 
-const Pelvic_floor_hero = () => {
+const Colon_rectal_cancer_hero = () => {
   const [heroData, setHeroData] = useState(null);
 
   useEffect(() => {
     const fetchHero = async () => {
       try {
-        const res = await api.get('/pelvic-floor/hero');
+        const res = await api.get('/colon-rectal-cancer/hero');
         setHeroData(res.data);
       } catch (error) {
-        console.error('Error fetching pelvic floor hero:', error);
+        console.error('Error fetching colon rectal cancer hero:', error);
       }
     };
     fetchHero();
@@ -20,8 +20,8 @@ const Pelvic_floor_hero = () => {
 
   // Use API data if available, otherwise use defaults
   const backgroundImage = heroData?.backgroundImage || '';
-  const title = heroData?.title || 'Pelvic Floor Problems';
-  const description = heroData?.description || 'At Azura Colorectal and Gut Wellness Clinic, we specialize in diagnosing and treating complex pelvic floor problems that can affect your bowel functions and overall quality of life. These conditions often require expert care and a multidisciplinary approach to ensure effective management and recovery. Below, we highlight four key pelvic floor problems and how we can help.';
+  const title = heroData?.title || 'Colon & Rectal Cancer';
+  const description = heroData?.description || 'Colorectal cancer is one of the most common cancers globally, but with early diagnosis and advanced treatment options, it is highly treatable. At Assana Colorectal and Gut Wellness Clinic, we specialize in comprehensive care for colon and rectal cancers.';
   const buttonText = heroData?.buttonText || 'Book Consultation';
 
   return (
@@ -36,7 +36,7 @@ const Pelvic_floor_hero = () => {
             </h1>
 
             {/* Description Paragraph */}
-            <p className="text-base md:text-lg lg:text-xl font-[Raleway] mb-8 leading-loose tracking-wide text-black">
+            <p className="text-base md:text-lg lg:text-xl font-[Raleway] mb-8 leading-relaxed text-black">
               {description}
             </p>
 
@@ -53,7 +53,7 @@ const Pelvic_floor_hero = () => {
             {backgroundImage ? (
               <img
                 src={backgroundImage}
-                alt="Pelvic Floor Problems"
+                alt="Colon & Rectal Cancer"
                 className="w-full h-full object-contain rounded-lg"
               />
             ) : (
@@ -68,5 +68,6 @@ const Pelvic_floor_hero = () => {
   );
 };
 
-export default Pelvic_floor_hero;
+export default Colon_rectal_cancer_hero;
+
 
