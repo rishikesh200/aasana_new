@@ -83,7 +83,7 @@ const HomeTryDemo = () => {
               className="bg-[#EC7979] text-white text-sm sm:text-base md:text-lg p-3 sm:p-4 rounded-full px-6 sm:px-8 font-semibold hover:bg-[#d86565] transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <BsStars className='w-5 h-5' />
-              Start Free Symptom Check
+              {getStartedComponentData?.button1Text || 'Start Free Symptom Check'}
             </button>
 
             <Link 
@@ -91,7 +91,7 @@ const HomeTryDemo = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <button className="bg-[#EC7979] text-white text-sm sm:text-base md:text-lg p-3 sm:p-4 rounded-full px-6 sm:px-8 font-semibold hover:bg-[#d86565] transition-colors w-full sm:w-auto">
-                Get Started
+                {getStartedComponentData?.button2Text || 'Get Started'}
               </button>
             </Link>
           </div>
